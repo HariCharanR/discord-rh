@@ -1,8 +1,14 @@
 import React from 'react'
 
-const authLayout = () => {
+const authLayout = ({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
   return (
-    <div>layout</div>
+    <div className='h-full flex items-center justify-center'>
+      {children}
+    </div>
   )
 }
 
