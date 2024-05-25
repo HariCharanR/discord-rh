@@ -2,6 +2,7 @@ import { db } from '@/lib/db'
 import React from 'react'
 import { initialProfile } from '@/lib/initial-profile'
 import { redirect } from 'next/navigation';
+import InitialModal from '@/components/modals/initial-modal';
 const Home = async () => {
 
   const profile = await initialProfile();
@@ -21,7 +22,7 @@ const Home = async () => {
   }
 
   return (
-    <div className="">Create a Server </div>
+    <InitialModal />
   )
 }
 
