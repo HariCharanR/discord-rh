@@ -24,6 +24,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import axios from 'axios'
+import { useRouter } from "next/navigation";
 
 const formSchama = z.object({
   name: z.string().min(1, {
@@ -36,6 +38,7 @@ const formSchama = z.object({
 
 const InitialModal = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setIsMounted(true);
@@ -52,7 +55,11 @@ const InitialModal = () => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchama>) => {
-    console.log(values);
+    await axios.post('/api/servers' , values);
+    form.reset()
+    router.refresh()
+    window.location.reload()
+  
   };
   if (!isMounted) {
     return null;
