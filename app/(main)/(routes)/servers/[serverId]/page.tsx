@@ -1,5 +1,14 @@
+
+
+
+
+
+
+
 const ServerIdPage = () => {
-    return ( <div className=""></div> );
-}
- 
+  return <div className="">
+    Server Page
+     </div>;
+};
+
 export default ServerIdPage;
