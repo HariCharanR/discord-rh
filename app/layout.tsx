@@ -5,6 +5,7 @@ import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@c
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/components/providers/modal-provider";
+import { SocketProvider } from "@/components/providers/socket-providers";
 
 const inter = Open_Sans({ subsets: ["latin"] });
 
@@ -31,8 +32,11 @@ export default function RootLayout({
             enableSystem
             storageKey="discord-theme"
           >
+            <SocketProvider>
             <ModalProvider />
             {children}
+            </SocketProvider>
+           
           </ThemeProvider>
         </body>
       </html>
